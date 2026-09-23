@@ -96,7 +96,7 @@ export const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="bg-white pt-10 md:pt-14 pb-0 relative overflow-hidden" id="hero">
+    <section className="bg-white pt-10 md:pt-14 pb-0 relative z-30" id="hero">
       <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
         <div
           ref={heroContentRef}

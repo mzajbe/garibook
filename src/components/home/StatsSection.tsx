@@ -117,7 +117,7 @@ export const StatsSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-gradient-to-r from-[#0E53FF] to-[#0038C4] text-white pt-28 md:pt-36 pb-0 relative overflow-hidden"
+      className="bg-gradient-to-r from-[#0E53FF] to-[#0038C4] text-white pt-28 md:pt-36 pb-0 relative z-10 overflow-hidden"
     >
       <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9 relative z-10 pb-16 md:pb-20">
         {/* Title */}
