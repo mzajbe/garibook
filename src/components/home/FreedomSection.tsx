@@ -23,7 +23,7 @@ export const FreedomSection: React.FC = () => {
 
   return (
     <section className="bg-[#08080A] text-white py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col gap-9">
+      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9">
         {/* Section Header */}
         <div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">

@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 export const DriverCtaSection: React.FC = () => {
   return (
     <section className="bg-white py-16 md:py-20" id="driver">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 mb-6">
           Be a Smart Driver

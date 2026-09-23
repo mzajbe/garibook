@@ -9,8 +9,8 @@ export const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#0052FF] text-white pt-24 md:pt-28 pb-0 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col gap-9 relative z-10 pb-12">
+    <section className="bg-[#0052FF] text-white pt-28 md:pt-36 pb-0 relative overflow-hidden">
+      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9 relative z-10 pb-12">
         {/* Title */}
         <div className="max-w-xl">
           <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-white leading-tight">

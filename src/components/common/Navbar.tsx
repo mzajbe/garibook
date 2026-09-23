@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 h-[74px] flex items-center justify-between">
+      {/* Top utility bar if language toggle is positioned top-right */}
+      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-0 hidden md:flex justify-end">
+        <button
+          type="button"
+          className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0052FF] hover:bg-[#0045D8] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer transition-colors"
+        >
+          <Globe size={13} className="text-white" />
+          <span>English</span>
+        </button>
+      </div>
+
+      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 h-[74px] flex items-center justify-between">
         {/* Brand Logo */}
         <a href="/" className="flex items-center gap-2.5 text-decoration-none" aria-label="Garibook Home">
           <svg className="w-9 h-9" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,32 +33,27 @@ export const Navbar: React.FC = () => {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
-          <a href="#hero" className="text-[14.5px] font-semibold text-[#0052FF] relative py-1 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#0052FF] after:rounded-full">Home</a>
-          <a href="#services" className="text-[14.5px] font-semibold text-slate-700 hover:text-[#0052FF] transition-colors">Intercity</a>
-          <a href="#services" className="text-[14.5px] font-semibold text-slate-700 hover:text-[#0052FF] transition-colors">Airport</a>
-          <a href="#services" className="text-[14.5px] font-semibold text-slate-700 hover:text-[#0052FF] transition-colors">Daily Rental</a>
-          <a href="#about" className="text-[14.5px] font-semibold text-slate-700 hover:text-[#0052FF] transition-colors">About Us</a>
-          <a href="#contact" className="text-[14.5px] font-semibold text-slate-700 hover:text-[#0052FF] transition-colors">Contact</a>
+        <nav className="hidden xl:flex items-center gap-7" aria-label="Main Navigation">
+          <a href="#about" className="text-[14.5px] font-medium text-slate-700 hover:text-[#0052FF] transition-colors">About Us</a>
+          <a href="#driver" className="text-[14.5px] font-medium text-slate-700 hover:text-[#0052FF] transition-colors">Earn With Garibook</a>
+          <a href="#services" className="text-[14.5px] font-medium text-slate-700 hover:text-[#0052FF] transition-colors">Garibook Business</a>
+          <a href="#club" className="text-[14.5px] font-medium text-slate-700 hover:text-[#0052FF] transition-colors">Garibook Club</a>
+          <a href="#campaign" className="text-[14.5px] font-medium text-slate-700 hover:text-[#0052FF] transition-colors">Campaign</a>
+          <a href="#news" className="text-[14.5px] font-medium text-slate-700 hover:text-[#0052FF] transition-colors">Blogs</a>
         </nav>
 
         {/* Right Action Items */}
-        <div className="flex items-center gap-5">
-          <div className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 px-3 py-1.5 rounded-md cursor-pointer transition-colors">
-            <Globe size={14} className="text-slate-500" />
-            <span>EN</span>
-            <ChevronDown size={13} className="text-slate-400" />
-          </div>
-
-          <a href="#login" className="hidden sm:inline-block text-sm font-semibold text-slate-900 hover:text-[#0052FF] transition-colors">Sign In</a>
-
-          <Button size="pill" className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-5 text-[13.5px] shadow-md shadow-[#0052FF]/20">
-            Book a Ride
+        <div className="flex items-center gap-4">
+          <Button
+            size="sm"
+            className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-6 py-2 rounded-lg text-sm font-semibold shadow-sm"
+          >
+            login
           </Button>
 
           {/* Mobile Menu Toggle Button */}
           <button
-            className="lg:hidden p-2 text-slate-900 hover:text-[#0052FF]"
+            className="xl:hidden p-2 text-slate-900 hover:text-[#0052FF]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
           >
