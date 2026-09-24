@@ -30,8 +30,8 @@ export const MoreThanMilesSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-16 md:py-20">
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-20 md:py-28">
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-8">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">

@@ -6,8 +6,8 @@ import { Star, Shield, ArrowRight, TrendingUp } from 'lucide-react';
 
 export const HandsOnBentoSection: React.FC = () => {
   return (
-    <section className="bg-[#0A0A0C] text-white py-16 md:py-20">
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9">
+    <section className="bg-[#0A0A0C] text-white py-20 md:py-28">
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9">
         {/* Header Row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">

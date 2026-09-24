@@ -31,8 +31,8 @@ export const BeyondDestinationsSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-16 md:py-20" id="destinations">
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-20 md:py-28" id="destinations">
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>

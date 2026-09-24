@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
     >
       {/* Top utility bar */}
       <div
-        className={`max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 hidden md:flex justify-end overflow-hidden ${
+        className={`max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 hidden md:flex justify-end overflow-hidden ${
           isScrolled ? 'max-h-0 opacity-0 py-0' : 'max-h-12 opacity-100 pt-2 pb-0'
         }`}
       >
@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       <div
-        className={`max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 flex items-center justify-between ${
+        className={`max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 flex items-center justify-between ${
           isScrolled ? 'h-[66px]' : 'h-[74px]'
         }`}
       >

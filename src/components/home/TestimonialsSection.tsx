@@ -31,8 +31,8 @@ export const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#F3F5FA] py-16 md:py-20" id="testimonials">
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#F3F5FA] py-20 md:py-28" id="testimonials">
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Navigation */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div className="max-w-xl">
