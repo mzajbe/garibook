@@ -10,13 +10,13 @@ export const HandsOnBentoSection: React.FC = () => {
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9">
         {/* Header Row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-white leading-snug lg:leading-[44px]">
             From Booking to Arrival<br />
             It's All In Your Hands
           </h2>
           <Button
             asChild
-            className="bg-[#0052FF] hover:bg-[#0045D8] text-white font-bold px-6 py-2.5 rounded-lg shadow-md shadow-[#0052FF]/30 w-fit"
+            className="bg-[#0052FF] hover:bg-[#0045D8] text-white font-semibold text-base px-6 py-2.5 rounded-lg shadow-md shadow-[#0052FF]/30 w-fit"
           >
             <a href="#download">
               <span>Get the App</span>

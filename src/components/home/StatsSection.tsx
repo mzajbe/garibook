@@ -138,7 +138,7 @@ export const StatsSection: React.FC = () => {
         <div className="max-w-3xl">
           <h2
             ref={titleRef}
-            className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold tracking-tight text-white leading-tight"
+            className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-white leading-snug lg:leading-[44px]"
           >
             From Everyday Rides to Meaningful Journeys
           </h2>
@@ -153,11 +153,11 @@ export const StatsSection: React.FC = () => {
           <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
             <span
               ref={tripsCountRef}
-              className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white"
+              className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight text-white leading-tight lg:leading-[56px]"
             >
               0+
             </span>
-            <span className="text-xs sm:text-sm font-semibold text-blue-100">
+            <span className="text-sm sm:text-base font-medium text-blue-100 leading-[24px]">
               Trip Requests
             </span>
           </div>
@@ -166,11 +166,11 @@ export const StatsSection: React.FC = () => {
           <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
             <span
               ref={customersCountRef}
-              className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white"
+              className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight text-white leading-tight lg:leading-[56px]"
             >
               0+
             </span>
-            <span className="text-xs sm:text-sm font-semibold text-blue-100">
+            <span className="text-sm sm:text-base font-medium text-blue-100 leading-[24px]">
               Total Customers
             </span>
           </div>
@@ -179,11 +179,11 @@ export const StatsSection: React.FC = () => {
           <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
             <span
               ref={driversCountRef}
-              className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white"
+              className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight text-white leading-tight lg:leading-[56px]"
             >
               0+
             </span>
-            <span className="text-xs sm:text-sm font-semibold text-blue-100">
+            <span className="text-sm sm:text-base font-medium text-blue-100 leading-[24px]">
               Active Drivers
             </span>
           </div>
@@ -192,11 +192,11 @@ export const StatsSection: React.FC = () => {
           <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
             <span
               ref={districtCountRef}
-              className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white"
+              className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight text-white leading-tight lg:leading-[56px]"
             >
               0
             </span>
-            <span className="text-xs sm:text-sm font-semibold text-blue-100">
+            <span className="text-sm sm:text-base font-medium text-blue-100 leading-[24px]">
               District Covered
             </span>
           </div>

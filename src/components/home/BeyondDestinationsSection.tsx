@@ -36,15 +36,15 @@ export const BeyondDestinationsSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
               Beyond Destinations
             </h2>
-            <p className="text-sm text-slate-500 mt-2">
+            <p className="text-base sm:text-lg text-slate-500 font-normal mt-2 leading-[28px]">
               Curated travel guides and scenic highway itineraries across Bangladesh.
             </p>
           </div>
 
-          <a href="#destinations" className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0052FF] hover:gap-2.5 transition-all">
+          <a href="#destinations" className="inline-flex items-center gap-1.5 text-base font-semibold text-[#0052FF] hover:gap-2.5 transition-all">
             <span>View All Destinations</span>
             <ArrowRight size={16} />
           </a>
@@ -66,11 +66,11 @@ export const BeyondDestinationsSection: React.FC = () => {
               </div>
 
               <div className="p-5 sm:p-6 flex flex-col gap-2.5 flex-1">
-                <span className="text-xs font-bold text-[#0052FF]">{item.tag}</span>
-                <h3 className="text-base font-extrabold text-slate-900 leading-snug line-clamp-2">
+                <span className="text-xs font-semibold text-[#0052FF]">{item.tag}</span>
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed line-clamp-3">
+                <p className="text-sm text-slate-500 font-normal leading-[22px] line-clamp-3">
                   {item.desc}
                 </p>
               </div>

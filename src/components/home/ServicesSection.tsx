@@ -53,7 +53,7 @@ export const ServicesSection: React.FC = () => {
               <button
                 key={filter}
                 type="button"
-                className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all cursor-pointer ${
+                className={`px-4 py-1.5 text-sm font-semibold rounded-full transition-all cursor-pointer ${
                   activeFilter === filter
                     ? 'bg-[#0052FF] text-white shadow-sm'
                     : 'text-slate-600 hover:text-slate-900 bg-transparent'
@@ -68,7 +68,7 @@ export const ServicesSection: React.FC = () => {
 
         {/* Section Heading */}
         <div className="mb-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
             Every Ride, One Platform
           </h2>
         </div>
@@ -96,8 +96,8 @@ export const ServicesSection: React.FC = () => {
                   variant={item.isFeatured ? 'default' : 'secondary'}
                   className={
                     item.isFeatured
-                      ? 'bg-white/20 text-white font-bold'
-                      : 'bg-slate-200/80 text-slate-700 font-bold'
+                      ? 'bg-white/20 text-white font-semibold text-xs'
+                      : 'bg-slate-200/80 text-slate-700 font-semibold text-xs'
                   }
                 >
                   {item.badge}
@@ -106,14 +106,14 @@ export const ServicesSection: React.FC = () => {
 
               <div className="flex flex-col gap-2">
                 <h3
-                  className={`text-xl font-extrabold tracking-tight ${
+                  className={`text-xl font-bold tracking-tight ${
                     item.isFeatured ? 'text-white' : 'text-slate-900'
                   }`}
                 >
                   {item.title}
                 </h3>
                 <p
-                  className={`text-sm leading-relaxed ${
+                  className={`text-sm sm:text-base font-normal leading-[24px] ${
                     item.isFeatured ? 'text-blue-100' : 'text-slate-500'
                   }`}
                 >

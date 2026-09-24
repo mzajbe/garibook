@@ -72,10 +72,10 @@ export const SearchWidget: React.FC = () => {
         <button
           type="button"
           onClick={() => setActiveTab('car')}
-          className={`px-6 sm:px-7 py-2.5 text-[14px] font-bold rounded-xl transition-all cursor-pointer ${
+          className={`px-6 sm:px-7 py-2.5 text-base font-semibold rounded-xl transition-all cursor-pointer ${
             activeTab === 'car'
               ? 'bg-[#141518] text-white shadow-sm'
-              : 'text-slate-800 hover:text-black bg-transparent font-semibold'
+              : 'text-slate-800 hover:text-black bg-transparent'
           }`}
         >
           Car Rental
@@ -85,10 +85,10 @@ export const SearchWidget: React.FC = () => {
         <button
           type="button"
           onClick={() => setActiveTab('airport')}
-          className={`px-6 sm:px-7 py-2.5 text-[14px] font-bold rounded-xl transition-all cursor-pointer ${
+          className={`px-6 sm:px-7 py-2.5 text-base font-semibold rounded-xl transition-all cursor-pointer ${
             activeTab === 'airport'
               ? 'bg-[#141518] text-white shadow-sm'
-              : 'text-slate-800 hover:text-black bg-transparent font-semibold'
+              : 'text-slate-800 hover:text-black bg-transparent'
           }`}
         >
           Airport Rental
@@ -104,7 +104,7 @@ export const SearchWidget: React.FC = () => {
             <div className="relative md:pr-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1.5">
                 <img src={carIcon} alt="Car" className="w-5 h-5 object-contain shrink-0" />
-                <label className="text-[13.5px] font-bold text-slate-900 flex items-center">
+                <label className="text-base font-semibold text-slate-900 flex items-center">
                   Choose a Car <span className="text-red-500 font-bold ml-1">*</span>
                 </label>
               </div>
@@ -117,7 +117,7 @@ export const SearchWidget: React.FC = () => {
                 }}
               >
                 <span
-                  className={`text-[13.5px] truncate ${
+                  className={`text-sm truncate ${
                     carType === 'Select Car Type' ? 'text-slate-400 font-normal' : 'text-slate-900 font-semibold'
                   }`}
                 >
@@ -160,7 +160,7 @@ export const SearchWidget: React.FC = () => {
             <div className="md:px-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1.5">
                 <img src={pickupDotIcon} alt="Pickup" className="w-5 h-5 object-contain shrink-0" />
-                <label htmlFor="pickup-input" className="text-[13.5px] font-bold text-slate-900 flex items-center">
+                <label htmlFor="pickup-input" className="text-base font-semibold text-slate-900 flex items-center">
                   {activeTab === 'airport' && airportTripType === 'from-airport' ? 'Pickup Airport' : 'Pickup Location'}
                   <span className="text-red-500 font-bold ml-1">*</span>
                 </label>
@@ -177,7 +177,7 @@ export const SearchWidget: React.FC = () => {
                     }}
                   >
                     <span
-                      className={`text-[13.5px] truncate ${
+                      className={`text-sm truncate ${
                         selectedAirport === 'Select Airport' ? 'text-slate-400 font-normal' : 'text-slate-900 font-semibold'
                       }`}
                     >
@@ -212,7 +212,7 @@ export const SearchWidget: React.FC = () => {
                   value={pickup}
                   onChange={(e) => setPickup(e.target.value)}
                   placeholder="Enter Pickup Location"
-                  className="text-[13.5px] text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
+                  className="text-sm text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
                 />
               )}
             </div>
@@ -224,7 +224,7 @@ export const SearchWidget: React.FC = () => {
             <div className="md:px-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1.5">
                 <img src={dropoffPinIcon} alt="Dropoff" className="w-5 h-5 object-contain shrink-0" />
-                <label htmlFor="dropoff-input" className="text-[13.5px] font-bold text-slate-900 flex items-center">
+                <label htmlFor="dropoff-input" className="text-base font-semibold text-slate-900 flex items-center">
                   {activeTab === 'airport' && airportTripType === 'to-airport' ? 'Drop-off Airport' : 'Drop-off Location'}
                   <span className="text-red-500 font-bold ml-1">*</span>
                 </label>
@@ -241,7 +241,7 @@ export const SearchWidget: React.FC = () => {
                     }}
                   >
                     <span
-                      className={`text-[13.5px] truncate ${
+                      className={`text-sm truncate ${
                         selectedAirport === 'Select Airport' ? 'text-slate-400 font-normal' : 'text-slate-900 font-semibold'
                       }`}
                     >
@@ -276,7 +276,7 @@ export const SearchWidget: React.FC = () => {
                   value={dropoff}
                   onChange={(e) => setDropoff(e.target.value)}
                   placeholder="Enter Drop-off Location"
-                  className="text-[13.5px] text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
+                  className="text-sm text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
                 />
               )}
             </div>
@@ -288,7 +288,7 @@ export const SearchWidget: React.FC = () => {
             <div className="md:pl-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-1.5">
                 <img src={calendarIcon} alt="Calendar" className="w-5 h-5 object-contain shrink-0" />
-                <label htmlFor="datetime-input" className="text-[13.5px] font-bold text-slate-900 flex items-center">
+                <label htmlFor="datetime-input" className="text-base font-semibold text-slate-900 flex items-center">
                   Pickup Date & Time <span className="text-red-500 font-bold ml-1">*</span>
                 </label>
               </div>
@@ -298,7 +298,7 @@ export const SearchWidget: React.FC = () => {
                 value={pickupDateTime}
                 onChange={(e) => setPickupDateTime(e.target.value)}
                 placeholder="MM/DD/YYYY 00:00 PM"
-                className="text-[13.5px] text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
+                className="text-sm text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
               />
             </div>
           </div>
@@ -326,7 +326,7 @@ export const SearchWidget: React.FC = () => {
                   ) : (
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
-                  <span className={`text-[14px] ${carTripType === 'oneway' ? 'font-bold text-slate-900' : 'font-semibold text-slate-800'}`}>
+                  <span className={`text-[15px] ${carTripType === 'oneway' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
                     One Way
                   </span>
                 </button>
@@ -348,7 +348,7 @@ export const SearchWidget: React.FC = () => {
                   ) : (
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
-                  <span className={`text-[14px] ${carTripType === 'roundway' ? 'font-bold text-slate-900' : 'font-semibold text-slate-800'}`}>
+                  <span className={`text-[15px] ${carTripType === 'roundway' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
                     Round Way
                   </span>
                 </button>
@@ -370,7 +370,7 @@ export const SearchWidget: React.FC = () => {
                   ) : (
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
-                  <span className={`text-[14px] ${carTripType === 'hourly' ? 'font-bold text-slate-900' : 'font-semibold text-slate-800'}`}>
+                  <span className={`text-[15px] ${carTripType === 'hourly' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
                     Hourly
                   </span>
                 </button>
@@ -395,7 +395,7 @@ export const SearchWidget: React.FC = () => {
                   ) : (
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
-                  <span className={`text-[14px] ${airportTripType === 'to-airport' ? 'font-bold text-slate-900' : 'font-semibold text-slate-800'}`}>
+                  <span className={`text-[15px] ${airportTripType === 'to-airport' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
                     To Airport
                   </span>
                 </button>
@@ -417,7 +417,7 @@ export const SearchWidget: React.FC = () => {
                   ) : (
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
-                  <span className={`text-[14px] ${airportTripType === 'from-airport' ? 'font-bold text-slate-900' : 'font-semibold text-slate-800'}`}>
+                  <span className={`text-[15px] ${airportTripType === 'from-airport' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
                     From Airport
                   </span>
                 </button>
@@ -428,7 +428,7 @@ export const SearchWidget: React.FC = () => {
             <Button
               type="submit"
               size="lg"
-              className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-10 py-3.5 text-[15px] font-bold rounded-xl shadow-lg shadow-[#0052FF]/25 w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer transition-all"
+              className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-10 py-3.5 text-[18px] font-semibold rounded-xl shadow-lg shadow-[#0052FF]/25 w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer transition-all"
             >
               <span>Continue</span>
               <ArrowRight size={18} />

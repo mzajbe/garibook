@@ -36,10 +36,10 @@ export const TestimonialsSection: React.FC = () => {
         {/* Section Header with Navigation */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div className="max-w-xl">
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
               Our Passengers Speak For Us
             </h2>
-            <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-500 font-normal mt-2 leading-[28px]">
               Hear authentic experiences from travelers who rely on Garibook for safe, premium journeys.
             </p>
           </div>
@@ -91,8 +91,8 @@ export const TestimonialsSection: React.FC = () => {
               </div>
 
               <div className="p-5 flex flex-col gap-1">
-                <h4 className="text-base font-extrabold text-slate-900">{item.name}</h4>
-                <p className="text-xs font-semibold text-slate-500">{item.route}</p>
+                <h4 className="text-lg font-semibold text-slate-900">{item.name}</h4>
+                <p className="text-sm font-normal text-slate-500">{item.route}</p>
               </div>
             </Card>
           ))}

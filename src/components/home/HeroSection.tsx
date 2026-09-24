@@ -117,13 +117,13 @@ export const HeroSection: React.FC = () => {
 
           {/* Right Subtitle & Yellow CTA Button */}
           <div className="flex flex-col items-start gap-4 lg:pl-10">
-            <p className="text-base sm:text-[17px] text-slate-500 font-normal leading-relaxed max-w-lg">
+            <p className="text-lg sm:text-[24px] text-slate-500 font-normal leading-normal sm:leading-[36px] max-w-lg">
               Choose your city, pick your car and enjoy the journey with Garibook's best drivers.
             </p>
             <Button
               asChild
               size="lg"
-              className="bg-[#FFC107] text-slate-950 font-bold hover:bg-[#EAA800] shadow-sm rounded-xl px-7 py-3.5 text-sm flex items-center gap-2 transition-all cursor-pointer"
+              className="bg-[#FFC107] text-slate-950 font-semibold hover:bg-[#EAA800] shadow-sm rounded-xl px-7 py-3.5 text-base flex items-center gap-2 transition-all cursor-pointer"
             >
               <a href="#app">
                 <span>Download App</span>

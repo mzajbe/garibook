@@ -8,24 +8,24 @@ export const DriverCtaSection: React.FC = () => {
     <section className="bg-white py-20 md:py-28" id="driver">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 mb-6">
+        <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px] mb-6">
           Be a Smart Driver
         </h2>
 
         {/* Yellow Banner Card */}
         <div className="bg-[#FFB800] rounded-2xl md:rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-[1.15fr_1fr] items-center shadow-xl shadow-[#FFB800]/20 min-h-[290px]">
           <div className="p-8 sm:p-12 flex flex-col gap-4 items-start">
-            <h3 className="text-3xl sm:text-4xl font-black text-slate-950 leading-tight tracking-tight">
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-950 leading-tight tracking-tight">
               0% Commission<br />
               100% Freedom
             </h3>
-            <p className="text-sm sm:text-base text-slate-900/80 max-w-md leading-relaxed">
+            <p className="text-sm sm:text-base font-normal text-slate-900/80 max-w-md leading-[26px]">
               Keep 100% of what you earn. Receive guaranteed long-distance trips, daily payouts, and 24/7 dedicated support.
             </p>
             <Button
               asChild
               size="lg"
-              className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-7 py-3 rounded-xl font-bold shadow-lg shadow-[#0052FF]/30 mt-1"
+              className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-7 py-3 rounded-xl font-semibold text-base shadow-lg shadow-[#0052FF]/30 mt-1"
             >
               <a href="#partner">
                 <span>Join as a Driver</span>

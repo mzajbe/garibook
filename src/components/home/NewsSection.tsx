@@ -38,7 +38,7 @@ export const NewsSection: React.FC = () => {
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Navigation Arrows */}
         <div className="flex items-end justify-between mb-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
             We Featured by Top news<br />
             Platforms
           </h2>
@@ -77,16 +77,16 @@ export const NewsSection: React.FC = () => {
               </div>
 
               <div className="p-5 sm:p-6 flex flex-col flex-1 gap-2.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#0052FF]">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#0052FF]">
                   <span>{item.platform}</span>
                   <span className="text-slate-300">•</span>
-                  <span className="text-slate-400 font-medium">{item.date}</span>
+                  <span className="text-slate-400 font-normal">{item.date}</span>
                 </div>
 
-                <h3 className="text-base font-extrabold text-slate-900 leading-snug line-clamp-2">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed line-clamp-2 flex-grow">
+                <p className="text-sm text-slate-500 font-normal leading-[22px] line-clamp-2 flex-grow">
                   {item.excerpt}
                 </p>
 

@@ -26,7 +26,7 @@ export const FreedomSection: React.FC = () => {
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9">
         {/* Section Header */}
         <div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-white leading-snug lg:leading-[44px]">
             Freedom in Every Journey
           </h2>
         </div>
@@ -48,8 +48,8 @@ export const FreedomSection: React.FC = () => {
                 {item.icon}
               </div>
               <div className="flex flex-col gap-1">
-                <h4 className="text-base font-bold text-white">{item.title}</h4>
-                <p className="text-xs sm:text-[13.5px] text-slate-400 leading-relaxed">
+                <h4 className="text-lg font-semibold text-white">{item.title}</h4>
+                <p className="text-sm sm:text-base font-normal text-slate-400 leading-[26px]">
                   {item.subtitle}
                 </p>
               </div>

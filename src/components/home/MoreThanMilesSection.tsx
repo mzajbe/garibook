@@ -34,7 +34,7 @@ export const MoreThanMilesSection: React.FC = () => {
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-8">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
             More Than Miles — We Bring People Together
           </h2>
         </div>
@@ -53,7 +53,7 @@ export const MoreThanMilesSection: React.FC = () => {
               />
               <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
                 <span className="flex items-center">{story.icon}</span>
-                <span className="text-xs font-bold text-slate-900">{story.tag}</span>
+                <span className="text-sm font-semibold text-slate-900">{story.tag}</span>
               </div>
             </div>
           ))}
