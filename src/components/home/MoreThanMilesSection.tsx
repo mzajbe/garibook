@@ -3,27 +3,30 @@ import familyImg from '../../assets/images/family_travel.jpg';
 import roadTripImg from '../../assets/images/road_trip_kids.jpg';
 import friendsImg from '../../assets/images/friends_beach.jpg';
 import { Users, Compass, Heart } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const MoreThanMilesSection: React.FC = () => {
+  const { t } = useLanguage();
+
   const stories = [
     {
       id: 'family',
       image: familyImg,
-      tag: 'Family Trips',
+      tag: t('tag_family'),
       icon: <Heart size={14} className="text-[#0052FF]" />,
       alt: 'Bangladeshi family with luggage by car',
     },
     {
       id: 'roadtrip',
       image: roadTripImg,
-      tag: 'Road Trips',
+      tag: t('tag_roadtrip'),
       icon: <Compass size={14} className="text-[#0052FF]" />,
       alt: 'Father and smiling kids enjoying road trip in car',
     },
     {
       id: 'group',
       image: friendsImg,
-      tag: 'Group Travel',
+      tag: t('tag_group'),
       icon: <Users size={14} className="text-[#0052FF]" />,
       alt: 'Friends enjoying beach vacation with car',
     },
@@ -35,7 +38,7 @@ export const MoreThanMilesSection: React.FC = () => {
         {/* Section Header */}
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
-            More Than Miles — We Bring People Together
+            {t('miles_title')}
           </h2>
         </div>
 

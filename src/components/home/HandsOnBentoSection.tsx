@@ -3,23 +3,26 @@ import phoneInHandImg from '../../assets/images/phone_in_hand.jpg';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Star, Shield, ArrowRight, TrendingUp } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const HandsOnBentoSection: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-[#0A0A0C] text-white py-20 md:py-28">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9">
         {/* Header Row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-white leading-snug lg:leading-[44px]">
-            From Booking to Arrival<br />
-            It's All In Your Hands
+            {t('bento_title_1')}<br />
+            {t('bento_title_2')}
           </h2>
           <Button
             asChild
             className="bg-[#0052FF] hover:bg-[#0045D8] text-white font-semibold text-base px-6 py-2.5 rounded-lg shadow-md shadow-[#0052FF]/30 w-fit"
           >
             <a href="#download">
-              <span>Get the App</span>
+              <span>{t('bento_get_app')}</span>
               <ArrowRight size={17} />
             </a>
           </Button>
@@ -31,13 +34,13 @@ export const HandsOnBentoSection: React.FC = () => {
           <div className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#0052FF] to-[#0070FF] rounded-2xl p-7 md:p-9 relative overflow-hidden flex flex-col justify-between min-h-[360px] shadow-xl shadow-[#0052FF]/20">
             <div className="flex flex-col gap-2.5 max-w-sm relative z-10">
               <span className="inline-block text-[11px] font-bold uppercase tracking-wider bg-white/20 text-white px-2.5 py-1 rounded-md w-fit">
-                Mobile Experience
+                {t('bento_card1_tag')}
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-                Smart Booking in 3 Taps
+                {t('bento_card1_title')}
               </h3>
               <p className="text-sm text-blue-100 leading-relaxed">
-                Real-time GPS tracking, chauffeur verification, and seamless digital payments right at your fingertips.
+                {t('bento_card1_desc')}
               </p>
             </div>
 
@@ -82,31 +85,31 @@ export const HandsOnBentoSection: React.FC = () => {
                 <span className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white" />
               </div>
               <div className="flex flex-col">
-                <h4 className="text-base font-extrabold text-slate-900">Kabir Ahmed</h4>
+                <h4 className="text-base font-extrabold text-slate-900">{t('bento_driver_name')}</h4>
                 <div className="flex items-center gap-1 text-xs font-bold text-[#FFB800]">
                   <Star size={13} className="fill-[#FFB800]" />
-                  <span>5.0 (480+ rides)</span>
+                  <span>{t('bento_driver_rating')}</span>
                 </div>
               </div>
               <span className="ml-auto text-xs font-bold text-[#0052FF] bg-blue-50 px-2.5 py-1 rounded-md">
-                4 mins away
+                {t('bento_driver_away')}
               </span>
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex flex-col gap-2 text-xs">
               <div className="flex justify-between">
-                <span className="text-slate-500">Vehicle</span>
+                <span className="text-slate-500">{t('bento_vehicle_label')}</span>
                 <span className="font-bold text-slate-900">Toyota Allion (White)</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">Plate Number</span>
+                <span className="text-slate-500">{t('bento_plate_label')}</span>
                 <span className="font-bold text-slate-900">Dhaka Metro-Ga 24-8921</span>
               </div>
             </div>
 
             <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600">
               <Shield size={14} />
-              <span>Garibook Verified Chauffeur & Sanitized</span>
+              <span>{t('bento_verified')}</span>
             </div>
           </Card>
 
@@ -118,9 +121,9 @@ export const HandsOnBentoSection: React.FC = () => {
               </div>
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                  Fare Transparency
+                  {t('bento_fare_tag')}
                 </span>
-                <h4 className="text-sm font-extrabold text-slate-900">No Surge, Exact Estimates</h4>
+                <h4 className="text-sm font-extrabold text-slate-900">{t('bento_fare_title')}</h4>
               </div>
             </div>
 
@@ -143,17 +146,17 @@ export const HandsOnBentoSection: React.FC = () => {
 
             <div className="flex justify-between items-baseline pt-2 border-t border-slate-100">
               <span className="text-2xl font-black text-[#0052FF]">৳ 3,200</span>
-              <span className="text-xs font-semibold text-slate-500">Fixed Dhaka to Ctg Rate</span>
+              <span className="text-xs font-semibold text-slate-500">{t('bento_fare_route')}</span>
             </div>
           </Card>
 
           {/* Card 4: Bottom-Middle Vehicle Chooser */}
           <Card className="col-span-1 bg-white rounded-2xl p-6 text-slate-900 flex flex-col gap-3.5 border-slate-200">
-            <h4 className="text-sm font-extrabold text-slate-900">Choose how you ride</h4>
+            <h4 className="text-sm font-extrabold text-slate-900">{t('bento_choose_ride')}</h4>
             <div className="flex flex-col gap-2">
               <div className="flex justify-between items-center p-2.5 rounded-lg bg-blue-50/80 border border-[#0052FF]/30">
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-slate-900">Sedan (4 Seats)</span>
+                  <span className="text-xs font-bold text-slate-900">{t('bento_sedan')}</span>
                   <span className="text-[11px] text-slate-500">Premio / Axio</span>
                 </div>
                 <span className="text-xs font-bold text-[#0052FF]">৳ 3,200</span>
@@ -161,7 +164,7 @@ export const HandsOnBentoSection: React.FC = () => {
 
               <div className="flex justify-between items-center p-2.5 rounded-lg bg-slate-50 border border-slate-200">
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-slate-900">Microbus (8-11 Seats)</span>
+                  <span className="text-xs font-bold text-slate-900">{t('bento_microbus')}</span>
                   <span className="text-[11px] text-slate-500">Toyota HiAce</span>
                 </div>
                 <span className="text-xs font-bold text-[#0052FF]">৳ 5,800</span>
@@ -169,7 +172,7 @@ export const HandsOnBentoSection: React.FC = () => {
 
               <div className="flex justify-between items-center p-2.5 rounded-lg bg-slate-50 border border-slate-200">
                 <div className="flex flex-col">
-                  <span className="text-xs font-bold text-slate-900">Luxury SUV (7 Seats)</span>
+                  <span className="text-xs font-bold text-slate-900">{t('bento_suv')}</span>
                   <span className="text-[11px] text-slate-500">Prado / Fortuner</span>
                 </div>
                 <span className="text-xs font-bold text-[#0052FF]">৳ 9,500</span>
@@ -181,9 +184,9 @@ export const HandsOnBentoSection: React.FC = () => {
           <div className="col-span-1 bg-[#FFB800] rounded-2xl p-6 pb-0 text-slate-900 flex flex-col justify-between overflow-hidden shadow-lg shadow-[#FFB800]/20">
             <div className="flex flex-col gap-1">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-900/60">
-                24/7 Connectivity
+                {t('bento_live_tag')}
               </span>
-              <h4 className="text-lg font-extrabold text-slate-950">Live in Your Palm</h4>
+              <h4 className="text-lg font-extrabold text-slate-950">{t('bento_live_title')}</h4>
             </div>
             <div className="w-full max-h-40 overflow-hidden flex justify-center mt-3">
               <img

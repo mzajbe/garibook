@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Globe } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,12 +22,12 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Earn With Garibook', href: '#driver' },
-    { name: 'Garibook Business', href: '#services' },
-    { name: 'Garibook Club', href: '#club' },
-    { name: 'Campaign', href: '#campaign' },
-    { name: 'Blogs', href: '#news' },
+    { name: t('nav_about'), href: '#about' },
+    { name: t('nav_driver'), href: '#driver' },
+    { name: t('nav_business'), href: '#services' },
+    { name: t('nav_club'), href: '#club' },
+    { name: t('nav_campaign'), href: '#campaign' },
+    { name: t('nav_blogs'), href: '#news' },
   ];
 
   return (
@@ -36,18 +38,23 @@ export const Navbar: React.FC = () => {
           : 'bg-white/95 backdrop-blur-md border-b border-slate-100'
       }`}
     >
-      {/* Top utility bar */}
+      {/* Top utility bar with Language Switcher */}
       <div
-        className={`max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 hidden md:flex justify-end overflow-hidden ${
+        className={`max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 flex justify-end overflow-hidden ${
           isScrolled ? 'max-h-0 opacity-0 py-0' : 'max-h-12 opacity-100 pt-2 pb-0'
         }`}
       >
         <button
           type="button"
-          className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0052FF] hover:bg-[#0045D8] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer transition-colors"
+          onClick={toggleLanguage}
+          className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0052FF] hover:bg-[#0045D8] px-3.5 py-1.5 rounded-lg shadow-sm cursor-pointer transition-all hover:scale-105"
+          title="Change language / ভাষা পরিবর্তন করুন"
         >
-          <Globe size={13} className="text-white" />
-          <span>English</span>
+          <Globe size={14} className="text-white shrink-0" />
+          <span>{language === 'en' ? 'English' : 'বাংলা'}</span>
+          <span className="text-[10px] opacity-75 font-normal ml-0.5">
+            ({language === 'en' ? 'বাংলা করতে ক্লিক করুন' : 'Switch to English'})
+          </span>
         </button>
       </div>
 
@@ -87,8 +94,18 @@ export const Navbar: React.FC = () => {
             size="sm"
             className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-6 py-2 rounded-lg text-sm font-semibold shadow-sm transition-all duration-300 hover:shadow-md"
           >
-            login
+            {t('nav_login')}
           </Button>
+
+          {/* Mobile Language Switcher */}
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="xl:hidden flex items-center gap-1 text-xs font-bold text-[#0052FF] bg-blue-50 px-2.5 py-1.5 rounded-md"
+          >
+            <Globe size={14} />
+            <span>{language === 'en' ? 'বাংলা' : 'EN'}</span>
+          </button>
 
           {/* Mobile Menu Toggle Button */}
           <button
@@ -115,12 +132,11 @@ export const Navbar: React.FC = () => {
             </a>
           ))}
           <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
-            <a href="#login" className="text-sm font-semibold text-slate-900">Sign In</a>
-            <Button className="w-full bg-[#0052FF]" onClick={() => setMobileMenuOpen(false)}>Book a Ride</Button>
+            <a href="#login" className="text-sm font-semibold text-slate-900">{t('nav_signin')}</a>
+            <Button className="w-full bg-[#0052FF]" onClick={() => setMobileMenuOpen(false)}>{t('nav_book_ride')}</Button>
           </div>
         </div>
       )}
     </header>
   );
 };
-

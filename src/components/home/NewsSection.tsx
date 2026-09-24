@@ -4,32 +4,35 @@ import newsImg2 from '../../assets/images/news_2.jpg';
 import newsImg3 from '../../assets/images/news_3.jpg';
 import { Card } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const NewsSection: React.FC = () => {
+  const { t, language } = useLanguage();
+
   const articles = [
     {
       id: 1,
       image: newsImg1,
       platform: 'The Daily Star',
-      date: 'Sep 2024',
-      title: 'How Garibook is revolutionizing inter-district travel across Bangladesh',
-      excerpt: 'Smart booking and transparent pricing create a safer, hassle-free alternative for highway journeys.',
+      date: language === 'bn' ? 'সেপ্টেম্বর ২০২৪' : 'Sep 2024',
+      title: language === 'bn' ? 'কীভাবে গাড়িবুক বাংলাদেশে আন্তঃজেলা যাত্রায় বিপ্লব আনছে' : 'How Garibook is revolutionizing inter-district travel across Bangladesh',
+      excerpt: language === 'bn' ? 'স্মার্ট বুকিং ও নির্ধারিত ভাড়া ব্যবস্থা হাইওয়ে যাত্রাকে করেছে আরও নিরাপদ ও সাশ্রয়ী।' : 'Smart booking and transparent pricing create a safer, hassle-free alternative for highway journeys.',
     },
     {
       id: 2,
       image: newsImg2,
       platform: 'The Business Standard',
-      date: 'Aug 2024',
-      title: 'Garibook expands smart fleet management to 64 districts nationwide',
-      excerpt: 'Empowering independent chauffeur partners with zero commission while elevating travel comfort.',
+      date: language === 'bn' ? 'আগস্ট ২০২৪' : 'Aug 2024',
+      title: language === 'bn' ? 'দেশের ৬৪ জেলায় গাড়িবুকের স্মার্ট কার রেন্টাল ফ্লিট সম্প্রসারণ' : 'Garibook expands smart fleet management to 64 districts nationwide',
+      excerpt: language === 'bn' ? '০% কমিশনে স্বাধীন ড্রাইভারদের ক্ষমতায়ন ও যাত্রীদের প্রিমিয়াম অভিজ্ঞতার প্রতিশ্রুতি।' : 'Empowering independent chauffeur partners with zero commission while elevating travel comfort.',
     },
     {
       id: 3,
       image: newsImg3,
       platform: 'Dhaka Tribune',
-      date: 'Jul 2024',
-      title: 'Safety first: Garibook implements 24/7 central GPS & emergency SOS monitoring',
-      excerpt: 'Ensuring absolute passenger and family peace of mind from Dhaka to Cox’s Bazar.',
+      date: language === 'bn' ? 'জুলাই ২০২৪' : 'Jul 2024',
+      title: language === 'bn' ? 'নিরাপত্তা প্রথম: ২৪/৭ লাইভ জিপিএস ও ইমার্জেন্সি এসওএস প্রযুক্তি' : 'Safety first: Garibook implements 24/7 central GPS & emergency SOS monitoring',
+      excerpt: language === 'bn' ? 'ঢাকা থেকে কক্সবাজার—প্রতিটি যাত্রায় পরিবার ও যাত্রীদের শতভাগ নিরাপত্তা নিশ্চিতকরণ।' : 'Ensuring absolute passenger and family peace of mind from Dhaka to Cox’s Bazar.',
     },
   ];
 
@@ -39,8 +42,8 @@ export const NewsSection: React.FC = () => {
         {/* Header with Navigation Arrows */}
         <div className="flex items-end justify-between mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
-            We Featured by Top news<br />
-            Platforms
+            {t('news_title_1')}<br />
+            {t('news_title_2')}
           </h2>
 
           <div className="flex gap-2.5">
@@ -92,7 +95,7 @@ export const NewsSection: React.FC = () => {
 
                 <div className="pt-3 border-t border-slate-100 mt-2">
                   <a href="#read" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052FF]">
-                    <span>Read Article</span>
+                    <span>{t('news_read')}</span>
                     <ArrowRight size={14} />
                   </a>
                 </div>

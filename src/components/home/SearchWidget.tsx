@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 import carIcon from '../../assets/images/fi_9610434.svg';
 import pickupDotIcon from '../../assets/images/Frame76.svg';
@@ -9,6 +10,7 @@ import calendarIcon from '../../assets/images/fi_12516022.svg';
 import downArrowIcon from '../../assets/images/Down_Arrow_3_.png';
 
 export const SearchWidget: React.FC = () => {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'car' | 'airport'>('car');
 
   // Car Rental sub-mode
@@ -51,15 +53,6 @@ export const SearchWidget: React.FC = () => {
 
   const handleContinue = (e: React.FormEvent) => {
     e.preventDefault();
-    const summary = {
-      service: activeTab === 'car' ? 'Car Rental' : 'Airport Rental',
-      mode: activeTab === 'car' ? carTripType : airportTripType,
-      car: carType !== 'Select Car Type' ? carType : 'Any Car',
-      pickup: activeTab === 'airport' && airportTripType === 'from-airport' ? selectedAirport : pickup || 'Dhaka',
-      dropoff: activeTab === 'airport' && airportTripType === 'to-airport' ? selectedAirport : dropoff || 'Destination',
-      datetime: pickupDateTime || 'Immediate',
-    };
-    console.log('Booking request:', summary);
     const target = document.getElementById('services');
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   };
@@ -78,7 +71,7 @@ export const SearchWidget: React.FC = () => {
               : 'text-slate-800 hover:text-black bg-transparent'
           }`}
         >
-          Car Rental
+          {t('tab_car_rental')}
         </button>
 
         {/* Airport Rental Tab */}
@@ -91,7 +84,7 @@ export const SearchWidget: React.FC = () => {
               : 'text-slate-800 hover:text-black bg-transparent'
           }`}
         >
-          Airport Rental
+          {t('tab_airport_rental')}
         </button>
       </div>
 
@@ -105,7 +98,7 @@ export const SearchWidget: React.FC = () => {
               <div className="flex items-center gap-2 mb-1.5">
                 <img src={carIcon} alt="Car" className="w-5 h-5 object-contain shrink-0" />
                 <label className="text-base font-semibold text-slate-900 flex items-center">
-                  Choose a Car <span className="text-red-500 font-bold ml-1">*</span>
+                  {t('label_choose_car')} <span className="text-red-500 font-bold ml-1">*</span>
                 </label>
               </div>
 
@@ -121,7 +114,7 @@ export const SearchWidget: React.FC = () => {
                     carType === 'Select Car Type' ? 'text-slate-400 font-normal' : 'text-slate-900 font-semibold'
                   }`}
                 >
-                  {carType}
+                  {carType === 'Select Car Type' ? t('placeholder_select_car') : carType}
                 </span>
                 <img
                   src={downArrowIcon}
@@ -161,7 +154,7 @@ export const SearchWidget: React.FC = () => {
               <div className="flex items-center gap-2 mb-1.5">
                 <img src={pickupDotIcon} alt="Pickup" className="w-5 h-5 object-contain shrink-0" />
                 <label htmlFor="pickup-input" className="text-base font-semibold text-slate-900 flex items-center">
-                  {activeTab === 'airport' && airportTripType === 'from-airport' ? 'Pickup Airport' : 'Pickup Location'}
+                  {activeTab === 'airport' && airportTripType === 'from-airport' ? t('label_pickup_airport') : t('label_pickup_loc')}
                   <span className="text-red-500 font-bold ml-1">*</span>
                 </label>
               </div>
@@ -181,7 +174,7 @@ export const SearchWidget: React.FC = () => {
                         selectedAirport === 'Select Airport' ? 'text-slate-400 font-normal' : 'text-slate-900 font-semibold'
                       }`}
                     >
-                      {selectedAirport}
+                      {selectedAirport === 'Select Airport' ? t('placeholder_select_airport') : selectedAirport}
                     </span>
                     <img src={downArrowIcon} alt="" className="w-3.5 h-auto object-contain opacity-75" />
                   </div>
@@ -211,7 +204,7 @@ export const SearchWidget: React.FC = () => {
                   type="text"
                   value={pickup}
                   onChange={(e) => setPickup(e.target.value)}
-                  placeholder="Enter Pickup Location"
+                  placeholder={t('placeholder_pickup_loc')}
                   className="text-sm text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
                 />
               )}
@@ -225,7 +218,7 @@ export const SearchWidget: React.FC = () => {
               <div className="flex items-center gap-2 mb-1.5">
                 <img src={dropoffPinIcon} alt="Dropoff" className="w-5 h-5 object-contain shrink-0" />
                 <label htmlFor="dropoff-input" className="text-base font-semibold text-slate-900 flex items-center">
-                  {activeTab === 'airport' && airportTripType === 'to-airport' ? 'Drop-off Airport' : 'Drop-off Location'}
+                  {activeTab === 'airport' && airportTripType === 'to-airport' ? t('label_dropoff_airport') : t('label_dropoff_loc')}
                   <span className="text-red-500 font-bold ml-1">*</span>
                 </label>
               </div>
@@ -245,7 +238,7 @@ export const SearchWidget: React.FC = () => {
                         selectedAirport === 'Select Airport' ? 'text-slate-400 font-normal' : 'text-slate-900 font-semibold'
                       }`}
                     >
-                      {selectedAirport}
+                      {selectedAirport === 'Select Airport' ? t('placeholder_select_airport') : selectedAirport}
                     </span>
                     <img src={downArrowIcon} alt="" className="w-3.5 h-auto object-contain opacity-75" />
                   </div>
@@ -275,7 +268,7 @@ export const SearchWidget: React.FC = () => {
                   type="text"
                   value={dropoff}
                   onChange={(e) => setDropoff(e.target.value)}
-                  placeholder="Enter Drop-off Location"
+                  placeholder={t('placeholder_dropoff_loc')}
                   className="text-sm text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
                 />
               )}
@@ -289,7 +282,7 @@ export const SearchWidget: React.FC = () => {
               <div className="flex items-center gap-2 mb-1.5">
                 <img src={calendarIcon} alt="Calendar" className="w-5 h-5 object-contain shrink-0" />
                 <label htmlFor="datetime-input" className="text-base font-semibold text-slate-900 flex items-center">
-                  Pickup Date & Time <span className="text-red-500 font-bold ml-1">*</span>
+                  {t('label_datetime')} <span className="text-red-500 font-bold ml-1">*</span>
                 </label>
               </div>
               <input
@@ -297,7 +290,7 @@ export const SearchWidget: React.FC = () => {
                 type="text"
                 value={pickupDateTime}
                 onChange={(e) => setPickupDateTime(e.target.value)}
-                placeholder="MM/DD/YYYY 00:00 PM"
+                placeholder={t('placeholder_datetime')}
                 className="text-sm text-slate-900 placeholder:text-slate-400 font-normal bg-transparent outline-none w-full py-1 truncate"
               />
             </div>
@@ -327,7 +320,7 @@ export const SearchWidget: React.FC = () => {
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
                   <span className={`text-[15px] ${carTripType === 'oneway' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
-                    One Way
+                    {t('radio_oneway')}
                   </span>
                 </button>
 
@@ -349,7 +342,7 @@ export const SearchWidget: React.FC = () => {
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
                   <span className={`text-[15px] ${carTripType === 'roundway' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
-                    Round Way
+                    {t('radio_roundway')}
                   </span>
                 </button>
 
@@ -371,7 +364,7 @@ export const SearchWidget: React.FC = () => {
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
                   <span className={`text-[15px] ${carTripType === 'hourly' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
-                    Hourly
+                    {t('radio_hourly')}
                   </span>
                 </button>
               </div>
@@ -396,7 +389,7 @@ export const SearchWidget: React.FC = () => {
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
                   <span className={`text-[15px] ${airportTripType === 'to-airport' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
-                    To Airport
+                    {t('radio_to_airport')}
                   </span>
                 </button>
 
@@ -418,7 +411,7 @@ export const SearchWidget: React.FC = () => {
                     <span className="w-[18px] h-[18px] rounded-full bg-[#E5E7EB] shrink-0" />
                   )}
                   <span className={`text-[15px] ${airportTripType === 'from-airport' ? 'font-semibold text-slate-900' : 'font-semibold text-slate-700'}`}>
-                    From Airport
+                    {t('radio_from_airport')}
                   </span>
                 </button>
               </div>
@@ -430,7 +423,7 @@ export const SearchWidget: React.FC = () => {
               size="lg"
               className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-10 py-3.5 text-[18px] font-semibold rounded-xl shadow-lg shadow-[#0052FF]/25 w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer transition-all"
             >
-              <span>Continue</span>
+              <span>{t('btn_continue')}</span>
               <ArrowRight size={18} />
             </Button>
           </div>

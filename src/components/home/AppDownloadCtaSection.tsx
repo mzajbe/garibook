@@ -2,8 +2,11 @@ import React from 'react';
 import phoneHandImg from '../../assets/images/phone_in_hand.jpg';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const AppDownloadCtaSection: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-white py-20 md:py-28" id="download">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,11 +14,11 @@ export const AppDownloadCtaSection: React.FC = () => {
           {/* Left Text Column */}
           <div className="p-8 sm:p-12 flex flex-col gap-4 items-start z-10">
             <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-white leading-snug lg:leading-[44px] tracking-tight">
-              Download Garibook<br />
-              Mobile App
+              {t('app_title_1')}<br />
+              {t('app_title_2')}
             </h2>
             <p className="text-sm sm:text-base font-normal text-blue-100 max-w-md leading-[26px]">
-              Book rides in seconds, track your chauffeur live on the map, and enjoy exclusive discounts on every journey.
+              {t('app_subtitle')}
             </p>
 
             <div className="flex flex-col gap-3 mt-2">
@@ -25,14 +28,14 @@ export const AppDownloadCtaSection: React.FC = () => {
                 className="bg-[#FFB800] text-slate-950 font-semibold text-base hover:bg-[#EAA800] px-7 py-3 rounded-xl shadow-lg shadow-black/20"
               >
                 <a href="#download">
-                  <span>Download App</span>
+                  <span>{t('app_btn')}</span>
                   <ArrowRight size={17} />
                 </a>
               </Button>
 
               <div>
                 <span className="text-xs sm:text-sm font-medium text-blue-200">
-                  Available on iOS & Android
+                  {t('app_tagline')}
                 </span>
               </div>
             </div>

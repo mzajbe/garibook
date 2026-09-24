@@ -1,23 +1,26 @@
 import React from 'react';
 import freedomImg from '../../assets/images/freedom_couple.jpg';
 import { ShieldCheck, Lock, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const FreedomSection: React.FC = () => {
+  const { t } = useLanguage();
+
   const features = [
     {
       icon: <ShieldCheck size={24} className="text-[#3B82F6]" />,
-      title: 'Verified Drivers',
-      subtitle: 'Chauffeurs background-checked & trained',
+      title: t('freedom_feat_1_title'),
+      subtitle: t('freedom_feat_1_sub'),
     },
     {
       icon: <Lock size={24} className="text-[#FFB800]" />,
-      title: 'Guaranteed Safety',
-      subtitle: '24/7 live GPS monitoring & emergency SOS',
+      title: t('freedom_feat_2_title'),
+      subtitle: t('freedom_feat_2_sub'),
     },
     {
       icon: <CheckCircle2 size={24} className="text-[#10B981]" />,
-      title: 'Transparent Pricing',
-      subtitle: 'Fixed toll & fuel inclusive, no hidden fees',
+      title: t('freedom_feat_3_title'),
+      subtitle: t('freedom_feat_3_sub'),
     },
   ];
 
@@ -27,7 +30,7 @@ export const FreedomSection: React.FC = () => {
         {/* Section Header */}
         <div>
           <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-white leading-snug lg:leading-[44px]">
-            Freedom in Every Journey
+            {t('freedom_title')}
           </h2>
         </div>
 

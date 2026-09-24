@@ -2,44 +2,51 @@ import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Car, Plane, Clock, Sparkles, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const ServicesSection: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const { t } = useLanguage();
+  const [activeFilterKey, setActiveFilterKey] = useState<'all' | 'intercity' | 'airport' | 'daily'>('all');
 
-  const filters = ['All', 'City to City', 'Airport Taxi', 'Daily Rental'];
+  const filters = [
+    { key: 'all', label: t('filter_all') },
+    { key: 'intercity', label: t('filter_intercity') },
+    { key: 'airport', label: t('filter_airport') },
+    { key: 'daily', label: t('filter_daily') },
+  ];
 
   const services = [
     {
       id: 'intercity',
-      title: 'Inter-City Rides',
-      description: 'Safe and comfortable rides between cities with fixed transparent pricing and zero surge fees.',
+      title: t('service_intercity_title'),
+      description: t('service_intercity_desc'),
       icon: <Car size={22} />,
       isFeatured: true,
-      badge: 'Popular',
+      badge: t('badge_popular'),
     },
     {
       id: 'airport',
-      title: 'Airport Transfer',
-      description: 'Never miss a flight with guaranteed on-time airport pickups and professional luggage assistance.',
+      title: t('service_airport_title'),
+      description: t('service_airport_desc'),
       icon: <Plane size={22} />,
       isFeatured: false,
-      badge: '24/7',
+      badge: t('badge_247'),
     },
     {
       id: 'hourly',
-      title: 'Hourly Rental',
-      description: 'Flexible car hire with vetted chauffeur for business meetings, family shopping, and daily city runs.',
+      title: t('service_hourly_title'),
+      description: t('service_hourly_desc'),
       icon: <Clock size={22} />,
       isFeatured: false,
-      badge: 'Flexible',
+      badge: t('badge_flexible'),
     },
     {
       id: 'wedding',
-      title: 'Wedding & Events',
-      description: 'Premium luxury fleet including Mercedes, Prado, and Allion for weddings and corporate delegates.',
+      title: t('service_wedding_title'),
+      description: t('service_wedding_desc'),
       icon: <Sparkles size={22} />,
       isFeatured: false,
-      badge: 'Luxury',
+      badge: t('badge_luxury'),
     },
   ];
 
@@ -51,16 +58,16 @@ export const ServicesSection: React.FC = () => {
           <div className="inline-flex bg-slate-100 p-1 rounded-full gap-1">
             {filters.map((filter) => (
               <button
-                key={filter}
+                key={filter.key}
                 type="button"
                 className={`px-4 py-1.5 text-sm font-semibold rounded-full transition-all cursor-pointer ${
-                  activeFilter === filter
+                  activeFilterKey === filter.key
                     ? 'bg-[#0052FF] text-white shadow-sm'
                     : 'text-slate-600 hover:text-slate-900 bg-transparent'
                 }`}
-                onClick={() => setActiveFilter(filter)}
+                onClick={() => setActiveFilterKey(filter.key as any)}
               >
-                {filter}
+                {filter.label}
               </button>
             ))}
           </div>
@@ -69,7 +76,7 @@ export const ServicesSection: React.FC = () => {
         {/* Section Heading */}
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
-            Every Ride, One Platform
+            {t('services_title')}
           </h2>
         </div>
 
@@ -128,7 +135,7 @@ export const ServicesSection: React.FC = () => {
                     item.isFeatured ? 'text-white' : 'text-[#0052FF]'
                   }`}
                 >
-                  <span>Explore details</span>
+                  <span>{t('service_explore')}</span>
                   {item.isFeatured ? <ArrowRight size={15} /> : <ArrowUpRight size={15} />}
                 </a>
               </div>

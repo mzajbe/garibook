@@ -3,12 +3,14 @@ import sedanCarGif from '../../assets/images/Sedan_GiF.gif';
 import frameCityPng from '../../assets/images/frame_city.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '../../context/LanguageContext';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export const StatsSection: React.FC = () => {
+  const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const skylineRef = useRef<HTMLDivElement>(null);
@@ -35,7 +37,6 @@ export const StatsSection: React.FC = () => {
 
       // 2. GSAP Realistic Car Highway Driving Dynamics
       if (carRef.current) {
-        // Subtle road vibration and suspension float
         gsap.to(carRef.current, {
           y: -2,
           duration: 0.35,
@@ -44,7 +45,6 @@ export const StatsSection: React.FC = () => {
           ease: 'power1.inOut',
         });
 
-        // Gentle forward-backward cruising drift
         gsap.to(carRef.current, {
           x: 25,
           duration: 3.5,
@@ -53,7 +53,6 @@ export const StatsSection: React.FC = () => {
           ease: 'sine.inOut',
         });
 
-        // ScrollTrigger: Car accelerates slightly when scrolling through section
         ScrollTrigger.create({
           trigger: sectionRef.current,
           start: 'top bottom',
@@ -83,12 +82,16 @@ export const StatsSection: React.FC = () => {
         gsap.set(statsContainerRef.current.children, { opacity: 0, y: 40 });
       }
 
+      const formatNum = (val: number) => {
+        const floorVal = Math.floor(val);
+        return language === 'bn' ? floorVal.toLocaleString('bn-BD') : floorVal.toLocaleString();
+      };
+
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: 'top 75%',
         once: true,
         onEnter: () => {
-          // Fade and slide in section heading from bottom
           if (titleRef.current) {
             gsap.to(titleRef.current, {
               opacity: 1,
@@ -98,7 +101,6 @@ export const StatsSection: React.FC = () => {
             });
           }
 
-          // Fade and slide in the stat boxes one by one (staggered)
           if (statsContainerRef.current) {
             gsap.to(statsContainerRef.current.children, {
               opacity: 1,
@@ -109,7 +111,6 @@ export const StatsSection: React.FC = () => {
             });
           }
 
-          // Count up numbers accurately
           gsap.to(statTargets, {
             trips: 300000,
             customers: 850000,
@@ -119,16 +120,16 @@ export const StatsSection: React.FC = () => {
             ease: 'power2.out',
             onUpdate: () => {
               if (tripsCountRef.current) {
-                tripsCountRef.current.innerText = `${Math.floor(statTargets.trips).toLocaleString()}+`;
+                tripsCountRef.current.innerText = `${formatNum(statTargets.trips)}+`;
               }
               if (customersCountRef.current) {
-                customersCountRef.current.innerText = `${Math.floor(statTargets.customers).toLocaleString()}+`;
+                customersCountRef.current.innerText = `${formatNum(statTargets.customers)}+`;
               }
               if (driversCountRef.current) {
-                driversCountRef.current.innerText = `${Math.floor(statTargets.drivers).toLocaleString()}+`;
+                driversCountRef.current.innerText = `${formatNum(statTargets.drivers)}+`;
               }
               if (districtCountRef.current) {
-                districtCountRef.current.innerText = `${Math.floor(statTargets.district)}`;
+                districtCountRef.current.innerText = `${formatNum(statTargets.district)}`;
               }
             },
           });
@@ -137,7 +138,7 @@ export const StatsSection: React.FC = () => {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [language]);
 
   return (
     <section
@@ -151,7 +152,7 @@ export const StatsSection: React.FC = () => {
             ref={titleRef}
             className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-white leading-snug lg:leading-[44px]"
           >
-            From Everyday Rides to Meaningful Journeys
+            {t('stats_title')}
           </h2>
         </div>
 
@@ -169,7 +170,7 @@ export const StatsSection: React.FC = () => {
               0+
             </span>
             <span className="text-sm sm:text-base font-medium text-blue-100 leading-[24px]">
-              Trip Requests
+              {t('stat_label_trips')}
             </span>
           </div>
 
@@ -182,7 +183,7 @@ export const StatsSection: React.FC = () => {
               0+
             </span>
             <span className="text-sm sm:text-base font-medium text-blue-100 leading-[24px]">
-              Total Customers
+              {t('stat_label_customers')}
             </span>
           </div>
 
@@ -195,7 +196,7 @@ export const StatsSection: React.FC = () => {
               0+
             </span>
             <span className="text-sm sm:text-base font-medium text-blue-100 leading-[24px]">
-              Active Drivers
+              {t('stat_label_drivers')}
             </span>
           </div>
 
@@ -208,7 +209,7 @@ export const StatsSection: React.FC = () => {
               0
             </span>
             <span className="text-sm sm:text-base font-medium text-blue-100 leading-[24px]">
-              District Covered
+              {t('stat_label_district')}
             </span>
           </div>
         </div>

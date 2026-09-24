@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Footer: React.FC = () => {
+  const { t, language } = useLanguage();
+
   return (
     <footer className="bg-[#060608] text-white pt-16 pb-8 border-t border-white/10">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,47 +13,47 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Col 1: Company */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Company</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">{t('footer_sec_company')}</h4>
             <ul className="flex flex-col gap-2.5 text-xs sm:text-sm text-slate-400">
-              <li><a href="#about" className="hover:text-[#0052FF] transition-colors">About Us</a></li>
-              <li><a href="#careers" className="hover:text-[#0052FF] transition-colors">Careers</a></li>
-              <li><a href="#news" className="hover:text-[#0052FF] transition-colors">Press & Media</a></li>
-              <li><a href="#privacy" className="hover:text-[#0052FF] transition-colors">Privacy Policy</a></li>
-              <li><a href="#terms" className="hover:text-[#0052FF] transition-colors">Terms & Conditions</a></li>
+              <li><a href="#about" className="hover:text-[#0052FF] transition-colors">{t('nav_about')}</a></li>
+              <li><a href="#careers" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'কেরিয়ার' : 'Careers'}</a></li>
+              <li><a href="#news" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'সংবাদ ও মিডিয়া' : 'Press & Media'}</a></li>
+              <li><a href="#privacy" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'গোপনীয়তা নীতি' : 'Privacy Policy'}</a></li>
+              <li><a href="#terms" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'ব্যবহারের শর্তাবলী' : 'Terms & Conditions'}</a></li>
             </ul>
           </div>
 
           {/* Col 2: Services */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Services</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">{t('footer_sec_services')}</h4>
             <ul className="flex flex-col gap-2.5 text-xs sm:text-sm text-slate-400">
-              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">Inter-City Rides</a></li>
-              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">Airport Transfer</a></li>
-              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">Daily Rental</a></li>
-              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">Wedding Car Fleet</a></li>
-              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">Corporate Fleet</a></li>
+              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">{t('service_intercity_title')}</a></li>
+              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">{t('service_airport_title')}</a></li>
+              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">{t('filter_daily')}</a></li>
+              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">{t('service_wedding_title')}</a></li>
+              <li><a href="#services" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'করপোরেট ফ্লিট' : 'Corporate Fleet'}</a></li>
             </ul>
           </div>
 
           {/* Col 3: Popular Routes */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Popular Routes</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">{language === 'bn' ? 'জনপ্রিয় রুটসমূহ' : 'Popular Routes'}</h4>
             <ul className="flex flex-col gap-2.5 text-xs sm:text-sm text-slate-400">
-              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">Dhaka to Chittagong</a></li>
-              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">Dhaka to Sylhet</a></li>
-              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">Dhaka to Cox's Bazar</a></li>
-              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">Airport to Uttara & Gulshan</a></li>
-              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">Dhaka to Rajshahi</a></li>
+              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'ঢাকা থেকে চট্টগ্রাম' : 'Dhaka to Chittagong'}</a></li>
+              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'ঢাকা থেকে সিলেট' : 'Dhaka to Sylhet'}</a></li>
+              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'ঢাকা থেকে কক্সবাজার' : "Dhaka to Cox's Bazar"}</a></li>
+              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'এয়ারপোর্ট থেকে উত্তরা ও গুলশান' : 'Airport to Uttara & Gulshan'}</a></li>
+              <li><a href="#booking" className="hover:text-[#0052FF] transition-colors">{language === 'bn' ? 'ঢাকা থেকে রাজশাহী' : 'Dhaka to Rajshahi'}</a></li>
             </ul>
           </div>
 
           {/* Col 4: Contact Us */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Contact Us</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">{t('footer_sec_contact')}</h4>
             <ul className="flex flex-col gap-3 text-xs sm:text-sm text-slate-400">
               <li className="flex items-center gap-2.5">
                 <Phone size={15} className="text-[#0052FF] shrink-0" />
-                <span>+880 9613-242424</span>
+                <span>+৮৮০ ৯৬১৩-২৪২৪২৪</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={15} className="text-[#0052FF] shrink-0" />
@@ -58,7 +61,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin size={15} className="text-[#0052FF] shrink-0" />
-                <span>Gulshan-1, Dhaka-1212, Bangladesh</span>
+                <span>{language === 'bn' ? 'গুলশান-১, ঢাকা-১২১২, বাংলাদেশ' : 'Gulshan-1, Dhaka-1212, Bangladesh'}</span>
               </li>
             </ul>
           </div>
@@ -68,14 +71,14 @@ export const Footer: React.FC = () => {
         <div className="py-6 border-y border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           {/* Driver Partner CTA */}
           <div className="flex items-center gap-3.5">
-            <span className="text-xs sm:text-sm font-bold text-white">Drive with Garibook</span>
+            <span className="text-xs sm:text-sm font-bold text-white">{language === 'bn' ? 'গাড়িবুকের সাথে ড্রাইভ করুন' : 'Drive with Garibook'}</span>
             <Button
               asChild
               size="sm"
               className="bg-[#0052FF] hover:bg-[#0045D8] text-white font-bold px-4 py-2 text-xs rounded-md shadow-md shadow-[#0052FF]/20"
             >
               <a href="#driver">
-                <span>Partner Portal</span>
+                <span>{language === 'bn' ? 'পার্টনার পোর্টাল' : 'Partner Portal'}</span>
                 <ArrowRight size={14} />
               </a>
             </Button>
@@ -83,7 +86,7 @@ export const Footer: React.FC = () => {
 
           {/* Member of */}
           <div className="flex items-center gap-3">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Member of</span>
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{language === 'bn' ? 'সদস্য' : 'Member of'}</span>
             <div className="flex items-center gap-2">
               <span className="bg-white/10 border border-white/15 px-2.5 py-1 rounded text-[11px] font-bold text-white">BASIS</span>
               <span className="bg-white/10 border border-white/15 px-2.5 py-1 rounded text-[11px] font-bold text-white">e-CAB</span>
@@ -93,7 +96,7 @@ export const Footer: React.FC = () => {
 
           {/* Secured Payment */}
           <div className="flex items-center gap-3">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Secured Payment</span>
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{language === 'bn' ? 'সুরক্ষিত পেমেন্ট' : 'Secured Payment'}</span>
             <div className="flex items-center gap-2">
               <span className="bg-[#E2136E] text-white px-2.5 py-1 rounded text-[11px] font-bold">bKash</span>
               <span className="bg-[#F7941D] text-white px-2.5 py-1 rounded text-[11px] font-bold">Nagad</span>
@@ -106,7 +109,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar: Copyright & Socials */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
-            © 2026 Garibook Ltd. All rights reserved.
+            {t('footer_rights')}
           </p>
 
           <div className="flex items-center gap-4 text-slate-400">

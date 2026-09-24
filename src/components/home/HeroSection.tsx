@@ -3,17 +3,24 @@ import { SearchWidget } from './SearchWidget';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const HeroSection: React.FC = () => {
-  const [displayText, setDisplayText] = useState('Your Journey Starts\nHere ...');
+  const { t, language } = useLanguage();
+  const [displayText, setDisplayText] = useState(t('hero_headline_1'));
   const heroContentRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLSpanElement>(null);
 
   const headlines = [
-    'Your Journey Starts\nHere ...',
-    'Luxury Trips with\nComfort',
-    'Assurance of\nEffortless Travel',
+    t('hero_headline_1'),
+    t('hero_headline_2'),
+    t('hero_headline_3'),
   ];
+
+  // Reset headline when language changes
+  useEffect(() => {
+    setDisplayText(t('hero_headline_1'));
+  }, [language, t]);
 
   // GSAP Headline Cycling Animation
   useEffect(() => {
@@ -93,7 +100,7 @@ export const HeroSection: React.FC = () => {
       isCancelled = true;
       clearTimeout(initialTimer);
     };
-  }, []);
+  }, [language]);
 
   return (
     <section className="bg-white pt-14 md:pt-20 pb-0 relative z-30" id="hero">
@@ -118,7 +125,7 @@ export const HeroSection: React.FC = () => {
           {/* Right Subtitle & Yellow CTA Button */}
           <div className="flex flex-col items-start gap-4 lg:pl-10">
             <p className="text-lg sm:text-[24px] text-slate-500 font-normal leading-normal sm:leading-[36px] max-w-lg">
-              Choose your city, pick your car and enjoy the journey with Garibook's best drivers.
+              {t('hero_subtitle')}
             </p>
             <Button
               asChild
@@ -126,7 +133,7 @@ export const HeroSection: React.FC = () => {
               className="bg-[#FFC107] text-slate-950 font-semibold hover:bg-[#EAA800] shadow-sm rounded-xl px-7 py-3.5 text-base flex items-center gap-2 transition-all cursor-pointer"
             >
               <a href="#app">
-                <span>Download App</span>
+                <span>{t('hero_download_btn')}</span>
                 <ArrowRight size={17} />
               </a>
             </Button>

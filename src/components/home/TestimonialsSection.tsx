@@ -4,29 +4,32 @@ import testImg2 from '../../assets/images/testimonial_2.jpg';
 import testImg3 from '../../assets/images/testimonial_3.jpg';
 import { Card } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const TestimonialsSection: React.FC = () => {
+  const { t, language } = useLanguage();
+
   const testimonials = [
     {
       id: 1,
       image: testImg1,
-      name: 'Tanvir Ahmed',
-      route: 'Dhaka to Sylhet Road Trip',
-      quote: '"The driver was right on time and extremely polite. The car was spotless, making our 6-hour family journey effortless."',
+      name: language === 'bn' ? 'তানভীর আহমেদ' : 'Tanvir Ahmed',
+      route: language === 'bn' ? 'ঢাকা থেকে সিলেট ভ্রমণ' : 'Dhaka to Sylhet Road Trip',
+      quote: language === 'bn' ? '"ড্রাইভার ঠিক সময়ে এসেছিলেন এবং অত্যন্ত ভদ্র ছিলেন। গাড়িটি পরিষ্কার ছিল।"' : '"The driver was right on time and extremely polite. The car was spotless, making our 6-hour family journey effortless."',
     },
     {
       id: 2,
       image: testImg2,
-      name: 'Mahmudul Hasan',
-      route: 'Weekly Airport Commuter',
-      quote: '"Garibook airport transfer is dependable. No last minute cancellations, and flight delay adjustments are seamless."',
+      name: language === 'bn' ? 'মাহমুদুল হাসান' : 'Mahmudul Hasan',
+      route: language === 'bn' ? 'সাপ্তাহিক এয়ারপোর্ট যাতায়াত' : 'Weekly Airport Commuter',
+      quote: language === 'bn' ? '"গাড়িবুক এয়ারপোর্ট ট্রান্সফার খুবই নির্ভরযোগ্য। শেষ মুহূর্তে ট্রিপ বাতিল হয় না।"' : '"Garibook airport transfer is dependable. No last minute cancellations, and flight delay adjustments are seamless."',
     },
     {
       id: 3,
       image: testImg3,
-      name: 'Dr. Farhana & Family',
-      route: 'Dhaka to Cox\'s Bazar Vacation',
-      quote: '"Traveling with elderly parents and children felt so secure. The live GPS tracking kept everyone at ease."',
+      name: language === 'bn' ? 'ড. ফারহানা ও পরিবার' : 'Dr. Farhana & Family',
+      route: language === 'bn' ? 'ঢাকা থেকে কক্সবাজার ছুটি' : "Dhaka to Cox's Bazar Vacation",
+      quote: language === 'bn' ? '"বয়স্ক বাবা-মা ও সন্তানদের নিয়ে নিরাপদে ভ্রমণ করতে পেরেছি। লাইভ ট্র্যাকিং স্বস্তি দিয়েছে।"' : '"Traveling with elderly parents and children felt so secure. The live GPS tracking kept everyone at ease."',
     },
   ];
 
@@ -37,10 +40,10 @@ export const TestimonialsSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div className="max-w-xl">
             <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">
-              Our Passengers Speak For Us
+              {t('test_title')}
             </h2>
             <p className="text-base sm:text-lg text-slate-500 font-normal mt-2 leading-[28px]">
-              Hear authentic experiences from travelers who rely on Garibook for safe, premium journeys.
+              {t('test_subtitle')}
             </p>
           </div>
 
@@ -86,7 +89,7 @@ export const TestimonialsSection: React.FC = () => {
                 </button>
 
                 <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded text-[11px] font-bold text-white">
-                  <span>Garibook Speaks</span>
+                  <span>{t('test_tag')}</span>
                 </div>
               </div>
 
