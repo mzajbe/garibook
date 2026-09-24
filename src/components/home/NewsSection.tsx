@@ -35,7 +35,7 @@ export const NewsSection: React.FC = () => {
 
   return (
     <section className="bg-white py-20 md:py-28" id="news">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Navigation Arrows */}
         <div className="flex items-end justify-between mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold tracking-tight text-slate-900 leading-snug lg:leading-[44px]">

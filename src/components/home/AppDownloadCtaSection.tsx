@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 export const AppDownloadCtaSection: React.FC = () => {
   return (
     <section className="bg-white py-20 md:py-28" id="download">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#0052FF] rounded-2xl md:rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-[1.2fr_1fr] items-center min-h-[320px] shadow-2xl shadow-[#0052FF]/30 relative">
           {/* Left Text Column */}
           <div className="p-8 sm:p-12 flex flex-col gap-4 items-start z-10">

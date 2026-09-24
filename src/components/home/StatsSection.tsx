@@ -75,27 +75,38 @@ export const StatsSection: React.FC = () => {
       // 3. GSAP Animated Heading & Stat Numbers with ScrollTrigger
       const statTargets = { trips: 0, customers: 0, drivers: 0, district: 0 };
 
+      // Set initial state before scrolling
+      if (titleRef.current) {
+        gsap.set(titleRef.current, { opacity: 0, y: 50 });
+      }
+      if (statsContainerRef.current) {
+        gsap.set(statsContainerRef.current.children, { opacity: 0, y: 40 });
+      }
+
       ScrollTrigger.create({
         trigger: sectionRef.current,
-        start: 'top 80%',
+        start: 'top 75%',
         once: true,
         onEnter: () => {
-          // Fade and slide in section heading
+          // Fade and slide in section heading from bottom
           if (titleRef.current) {
-            gsap.fromTo(
-              titleRef.current,
-              { opacity: 0, y: 35 },
-              { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }
-            );
+            gsap.to(titleRef.current, {
+              opacity: 1,
+              y: 0,
+              duration: 0.9,
+              ease: 'power3.out',
+            });
           }
 
-          // Fade and slide in the stat boxes
+          // Fade and slide in the stat boxes one by one (staggered)
           if (statsContainerRef.current) {
-            gsap.fromTo(
-              statsContainerRef.current.children,
-              { opacity: 0, y: 40 },
-              { opacity: 1, y: 0, duration: 0.9, stagger: 0.15, ease: 'power3.out' }
-            );
+            gsap.to(statsContainerRef.current.children, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.2,
+              ease: 'power3.out',
+            });
           }
 
           // Count up numbers accurately
@@ -131,9 +142,9 @@ export const StatsSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-gradient-to-r from-[#0E53FF] to-[#0038C4] text-white pt-32 md:pt-44 pb-0 relative z-10 overflow-hidden"
+      className="bg-gradient-to-r from-[#0E53FF] to-[#0038C4] text-white pt-40 md:pt-52 lg:pt-60 pb-0 relative z-10 overflow-hidden min-h-[580px] lg:min-h-[640px] flex flex-col justify-between"
     >
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10 relative z-10 pb-20 md:pb-28">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12 lg:gap-16 relative z-10 pb-28 md:pb-36 lg:pb-40 w-full">
         {/* Title */}
         <div className="max-w-3xl">
           <h2
@@ -147,10 +158,10 @@ export const StatsSection: React.FC = () => {
         {/* Stats Row with Animated Numbers */}
         <div
           ref={statsContainerRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-2"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-2"
         >
           {/* Stat 1 */}
-          <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
+          <div className="border-l-2 border-white/30 pl-6 flex flex-col gap-2 py-1">
             <span
               ref={tripsCountRef}
               className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight text-white leading-tight lg:leading-[56px]"
@@ -163,7 +174,7 @@ export const StatsSection: React.FC = () => {
           </div>
 
           {/* Stat 2 */}
-          <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
+          <div className="border-l-2 border-white/30 pl-6 flex flex-col gap-2 py-1">
             <span
               ref={customersCountRef}
               className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight text-white leading-tight lg:leading-[56px]"
@@ -176,7 +187,7 @@ export const StatsSection: React.FC = () => {
           </div>
 
           {/* Stat 3 */}
-          <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
+          <div className="border-l-2 border-white/30 pl-6 flex flex-col gap-2 py-1">
             <span
               ref={driversCountRef}
               className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight text-white leading-tight lg:leading-[56px]"
@@ -189,7 +200,7 @@ export const StatsSection: React.FC = () => {
           </div>
 
           {/* Stat 4 */}
-          <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
+          <div className="border-l-2 border-white/30 pl-6 flex flex-col gap-2 py-1">
             <span
               ref={districtCountRef}
               className="text-3xl sm:text-4xl lg:text-[48px] font-extrabold tracking-tight text-white leading-tight lg:leading-[56px]"

@@ -45,7 +45,7 @@ export const ServicesSection: React.FC = () => {
 
   return (
     <section className="bg-white py-20 md:py-28" id="services">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow Filter Pills */}
         <div className="flex mb-4">
           <div className="inline-flex bg-slate-100 p-1 rounded-full gap-1">

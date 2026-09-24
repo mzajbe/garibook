@@ -97,7 +97,7 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section className="bg-white pt-14 md:pt-20 pb-0 relative z-30" id="hero">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
         <div
           ref={heroContentRef}
           className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] items-center justify-between gap-8 lg:gap-14 pb-10 min-h-[200px]"
