@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Globe } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'About Us', href: '#about' },
@@ -15,9 +29,19 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-100">
-      {/* Top utility bar if language toggle is positioned top-right */}
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-0 hidden md:flex justify-end">
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/98 backdrop-blur-md shadow-md shadow-slate-900/5 border-b border-slate-200/80 py-0'
+          : 'bg-white/95 backdrop-blur-md border-b border-slate-100'
+      }`}
+    >
+      {/* Top utility bar */}
+      <div
+        className={`max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 hidden md:flex justify-end overflow-hidden ${
+          isScrolled ? 'max-h-0 opacity-0 py-0' : 'max-h-12 opacity-100 pt-2 pb-0'
+        }`}
+      >
         <button
           type="button"
           className="flex items-center gap-1.5 text-xs font-bold text-white bg-[#0052FF] hover:bg-[#0045D8] px-3 py-1.5 rounded-lg shadow-sm cursor-pointer transition-colors"
@@ -27,13 +51,19 @@ export const Navbar: React.FC = () => {
         </button>
       </div>
 
-      <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 h-[74px] flex items-center justify-between">
+      <div
+        className={`max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 flex items-center justify-between ${
+          isScrolled ? 'h-[66px]' : 'h-[74px]'
+        }`}
+      >
         {/* Brand Logo */}
         <a href="/" className="flex items-center text-decoration-none" aria-label="Garibook Home">
           <img
             src="/garibook-logo.svg"
             alt="Garibook Logo"
-            className="h-[40px] md:h-[44px] w-auto object-contain"
+            className={`w-auto object-contain transition-all duration-300 ${
+              isScrolled ? 'h-[36px] md:h-[38px]' : 'h-[40px] md:h-[44px]'
+            }`}
           />
         </a>
 
@@ -55,7 +85,7 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-4">
           <Button
             size="sm"
-            className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-6 py-2 rounded-lg text-sm font-semibold shadow-sm"
+            className="bg-[#0052FF] text-white hover:bg-[#0045D8] px-6 py-2 rounded-lg text-sm font-semibold shadow-sm transition-all duration-300 hover:shadow-md"
           >
             login
           </Button>

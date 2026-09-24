@@ -10,6 +10,7 @@ if (typeof window !== 'undefined') {
 
 export const StatsSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const skylineRef = useRef<HTMLDivElement>(null);
   const carRef = useRef<HTMLDivElement>(null);
   const statsContainerRef = useRef<HTMLDivElement>(null);
@@ -17,8 +18,8 @@ export const StatsSection: React.FC = () => {
   // Counter values refs for GSAP ScrollTrigger animation
   const tripsCountRef = useRef<HTMLSpanElement>(null);
   const customersCountRef = useRef<HTMLSpanElement>(null);
-  const supportCountRef = useRef<HTMLSpanElement>(null);
-  const citiesCountRef = useRef<HTMLSpanElement>(null);
+  const driversCountRef = useRef<HTMLSpanElement>(null);
+  const districtCountRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -71,28 +72,38 @@ export const StatsSection: React.FC = () => {
         });
       }
 
-      // 3. GSAP Animated Stat Numbers with ScrollTrigger
-      const statTargets = { trips: 0, customers: 0, cities: 0 };
+      // 3. GSAP Animated Heading & Stat Numbers with ScrollTrigger
+      const statTargets = { trips: 0, customers: 0, drivers: 0, district: 0 };
 
       ScrollTrigger.create({
-        trigger: statsContainerRef.current,
-        start: 'top 85%',
+        trigger: sectionRef.current,
+        start: 'top 80%',
         once: true,
         onEnter: () => {
+          // Fade and slide in section heading
+          if (titleRef.current) {
+            gsap.fromTo(
+              titleRef.current,
+              { opacity: 0, y: 35 },
+              { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }
+            );
+          }
+
           // Fade and slide in the stat boxes
           if (statsContainerRef.current) {
             gsap.fromTo(
               statsContainerRef.current.children,
-              { opacity: 0, y: 30 },
-              { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
+              { opacity: 0, y: 40 },
+              { opacity: 1, y: 0, duration: 0.9, stagger: 0.15, ease: 'power3.out' }
             );
           }
 
-          // Count up numbers
+          // Count up numbers accurately
           gsap.to(statTargets, {
-            trips: 150000,
-            customers: 99.9,
-            cities: 50,
+            trips: 300000,
+            customers: 850000,
+            drivers: 35000,
+            district: 64,
             duration: 2.2,
             ease: 'power2.out',
             onUpdate: () => {
@@ -100,10 +111,13 @@ export const StatsSection: React.FC = () => {
                 tripsCountRef.current.innerText = `${Math.floor(statTargets.trips).toLocaleString()}+`;
               }
               if (customersCountRef.current) {
-                customersCountRef.current.innerText = `${statTargets.customers.toFixed(1)}%`;
+                customersCountRef.current.innerText = `${Math.floor(statTargets.customers).toLocaleString()}+`;
               }
-              if (citiesCountRef.current) {
-                citiesCountRef.current.innerText = `${Math.floor(statTargets.cities)}+`;
+              if (driversCountRef.current) {
+                driversCountRef.current.innerText = `${Math.floor(statTargets.drivers).toLocaleString()}+`;
+              }
+              if (districtCountRef.current) {
+                districtCountRef.current.innerText = `${Math.floor(statTargets.district)}`;
               }
             },
           });
@@ -121,8 +135,11 @@ export const StatsSection: React.FC = () => {
     >
       <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-9 relative z-10 pb-16 md:pb-20">
         {/* Title */}
-        <div className="max-w-2xl">
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold tracking-tight text-white leading-tight">
+        <div className="max-w-3xl">
+          <h2
+            ref={titleRef}
+            className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold tracking-tight text-white leading-tight"
+          >
             From Everyday Rides to Meaningful Journeys
           </h2>
         </div>
@@ -138,10 +155,10 @@ export const StatsSection: React.FC = () => {
               ref={tripsCountRef}
               className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white"
             >
-              150,000+
+              0+
             </span>
             <span className="text-xs sm:text-sm font-semibold text-blue-100">
-              Completed Trips
+              Trip Requests
             </span>
           </div>
 
@@ -151,36 +168,36 @@ export const StatsSection: React.FC = () => {
               ref={customersCountRef}
               className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white"
             >
-              99.9%
+              0+
             </span>
             <span className="text-xs sm:text-sm font-semibold text-blue-100">
-              Happy Customers
+              Total Customers
             </span>
           </div>
 
           {/* Stat 3 */}
           <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
             <span
-              ref={supportCountRef}
+              ref={driversCountRef}
               className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white"
             >
-              24/7
+              0+
             </span>
             <span className="text-xs sm:text-sm font-semibold text-blue-100">
-              Live Support
+              Active Drivers
             </span>
           </div>
 
           {/* Stat 4 */}
           <div className="border-l-2 border-white/25 pl-5 flex flex-col gap-1.5">
             <span
-              ref={citiesCountRef}
+              ref={districtCountRef}
               className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-white"
             >
-              50+
+              0
             </span>
             <span className="text-xs sm:text-sm font-semibold text-blue-100">
-              Cities Covered
+              District Covered
             </span>
           </div>
         </div>
@@ -218,3 +235,4 @@ export const StatsSection: React.FC = () => {
     </section>
   );
 };
+
